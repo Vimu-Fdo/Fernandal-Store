@@ -12,6 +12,7 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class SchermataIniziale extends JFrame {
 
@@ -39,7 +40,7 @@ public class SchermataIniziale extends JFrame {
 	public SchermataIniziale() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1207, 998);
+		setBounds(100, 100, 1200, 1000);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -47,22 +48,31 @@ public class SchermataIniziale extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel label = new JLabel("");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setIcon(new ImageIcon(SchermataIniziale.class.getResource("/Immagini/FERNANDAL (1).png")));
-		label.setBounds(338, -21, 585, 237);
+		label.setBounds(305, 0, 581, 237);
 		contentPane.add(label);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(661, 276, 400, 550);
-		contentPane.add(btnNewButton_1);
-		
-		JButton button = new JButton("New button");
-		button.addActionListener(new ActionListener() {
+		JButton btnDonna = new JButton("Donna");
+		btnDonna.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Uomo frame=new Uomo();
-				frame.setVisible(true);
+				Donna framedonna= new Donna();
+				framedonna.setVisible(true);
+				dispose();
 			}
 		});
-		button.setBounds(96, 276, 400, 550);
-		contentPane.add(button);
+		btnDonna.setBounds(661, 276, 400, 550);
+		contentPane.add(btnDonna);
+		
+		JButton btnUomo = new JButton("Uomo");
+		btnUomo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Uomo frameuomo=new Uomo();
+				frameuomo.setVisible(true);
+				dispose();
+			}
+		});
+		btnUomo.setBounds(130, 276, 400, 550);
+		contentPane.add(btnUomo);
 	}
 }
