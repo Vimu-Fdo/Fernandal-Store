@@ -9,10 +9,15 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class SchermataIniziale extends JFrame {
 
@@ -38,20 +43,16 @@ public class SchermataIniziale extends JFrame {
 	 * Create the frame.
 	 */
 	public SchermataIniziale() {
-		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1200, 1000);
+		setBounds(100, 100, 1037, 809);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		JLabel label = new JLabel("");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setIcon(new ImageIcon(SchermataIniziale.class.getResource("/Immagini/FERNANDAL (1).png")));
-		label.setBounds(305, 0, 581, 237);
-		contentPane.add(label);
 		
 		JButton btnDonna = new JButton("Donna");
 		btnDonna.addActionListener(new ActionListener() {
@@ -61,18 +62,44 @@ public class SchermataIniziale extends JFrame {
 				dispose();
 			}
 		});
-		btnDonna.setBounds(661, 276, 400, 550);
-		contentPane.add(btnDonna);
 		
 		JButton btnUomo = new JButton("Uomo");
+		btnUomo.setFont(new Font("Trebuchet MS", Font.PLAIN, 35));
+		
 		btnUomo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Uomo frameuomo=new Uomo();
 				frameuomo.setVisible(true);
 				dispose();
 			}
+		
 		});
-		btnUomo.setBounds(130, 276, 400, 550);
-		contentPane.add(btnUomo);
+		
+		
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(278)
+					.addComponent(label, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(231))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(214)
+					.addComponent(btnUomo, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+					.addGap(98)
+					.addComponent(btnDonna, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+					.addGap(157))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(label, GroupLayout.PREFERRED_SIZE, 250, Short.MAX_VALUE)
+					.addGap(13)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnUomo, GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+						.addComponent(btnDonna, GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+					.addGap(9))
+		);
+		contentPane.setLayout(gl_contentPane);
 	}
 }
