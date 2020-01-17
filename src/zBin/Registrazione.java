@@ -1,10 +1,14 @@
-package Dao;
+package zBin;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import bDao.UtenteDao;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -25,7 +29,7 @@ public class Registrazione extends JFrame {
 	private JTextField txtCognome;
 	private JTextField txtNome;
 	private JTextField txtMail;
-	private StoreController Controller;
+
 	private JTextField txtID;
 
 	/**
@@ -47,8 +51,8 @@ public class Registrazione extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Registrazione(StoreController ctrl) {
-		Controller= ctrl;
+	public Registrazione() {
+		
 		setTitle("Registrazione");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 619);

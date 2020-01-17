@@ -1,13 +1,15 @@
-package Dao;
+package bDao;
 
 import java.sql.*;
 import java.util.*;
+
+import aDeafultPackage.Prodotto;
 
 public class PantaloneDao {
 	PreparedStatement pst=null;
 	ResultSet rs=null;
 	Connessione c=new Connessione();
-	Pantalone p;
+	Prodotto p;
 	
 	Connection con() throws SQLException,ClassNotFoundException{
 		Class.forName(c.getDriver());
@@ -15,20 +17,20 @@ public class PantaloneDao {
 		
 	}
 	
-	public ArrayList<Pantalone> MostraPantalone(){
-		ArrayList<Pantalone> panta=new ArrayList<Pantalone>();
+	public ArrayList<Prodotto> MostraPantaloni(){
+		ArrayList<Prodotto> pantaloni=new ArrayList<Prodotto>();
 		try {
-			pst=con().prepareStatement("SELECT * FROM `pantalone`");
+			pst=con().prepareStatement("SELECT * FROM `prodotti`");
 			rs=pst.executeQuery();
 			while (rs.next()){
-				p= new Pantalone(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getDouble(4),rs.getInt(5),rs.getBytes(6));
-				panta.add(p);
+				p= new Prodotto(rs.getInt(2),rs.getString(3),rs.getDouble(4),rs.getInt(5));
+				pantaloni.add(p);
 			}
 			
 		} catch (Exception e) {
 			
 		}
-		return panta;
+		return pantaloni;
 		
 		
 		
