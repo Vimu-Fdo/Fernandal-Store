@@ -1,4 +1,4 @@
-package Dao;
+package bDao;
 
 public class Connessione {
 	private String driver="com.mysql.jdbc.Driver";

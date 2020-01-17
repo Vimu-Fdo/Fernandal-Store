@@ -1,4 +1,4 @@
-package Dao;
+package aDeafultPackage;
 
 public class Utente {
 	private String Nome;

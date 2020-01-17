@@ -1,4 +1,5 @@
-package Dao;
+package zBin;
+
 
 import javax.swing.table.AbstractTableModel;
 import javax.swing.*;

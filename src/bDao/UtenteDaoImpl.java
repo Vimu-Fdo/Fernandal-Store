@@ -1,4 +1,4 @@
-package Dao;
+package bDao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
+
+import aDeafultPackage.Utente;
 
 public class UtenteDaoImpl implements UtenteDao {
 	String SqlAggiungiUtente="INSERT INTO `utente`(`Nome`, `Cognome`, `ID`, `E-mail` ,`Password`) VALUES (?,?,?,?)";

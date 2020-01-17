@@ -1,4 +1,5 @@
-package Dao;
+package aDeafultPackage;
+
 
 public class Prodotto {
 	private String Categoria;
@@ -9,14 +10,14 @@ public class Prodotto {
 	private byte[] Image;
 	
 	
-	public Prodotto(String categoria, int iD, String nomeProdotto, Double prezzo, int quantità, byte[] image) {
+	public Prodotto( int iD, String nomeProdotto, Double prezzo, int quantità) {
 		super();
-		Categoria = categoria;
+		
 		ID = iD;
 		NomeProdotto = nomeProdotto;
 		Prezzo = prezzo;
 		Quantità = quantità;
-		Image = image;
+		
 	}
 	
 	public int getID() {
