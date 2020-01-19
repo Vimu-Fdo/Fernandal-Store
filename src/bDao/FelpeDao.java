@@ -9,9 +9,7 @@ import java.util.ArrayList;
 
 import aDeafultPackage.Prodotto;
 
-
-
-public class MaglieriaDao {
+public class FelpeDao {
 	PreparedStatement pst=null;
 	ResultSet rs=null;
 	Connessione c=new Connessione();
@@ -23,26 +21,26 @@ public class MaglieriaDao {
 		
 	}
 	
-	public ArrayList<Prodotto> MostraMaglieria(){
-		ArrayList<Prodotto> maglieria=new ArrayList<Prodotto>();
+	public ArrayList<Prodotto> MostraFelpe(){
+		ArrayList<Prodotto> felpe=new ArrayList<Prodotto>();
 		try {
-			pst=con().prepareStatement("SELECT * FROM `prodotti` WHERE Sesso='Uomo'AND categoria='Maglieria'");
+			pst=con().prepareStatement("SELECT * FROM `prodotti` WHERE Sesso='Uomo'AND categoria='Felpa'");
 			rs=pst.executeQuery();
 			while (rs.next()){
 				p= new Prodotto(rs.getInt(2),rs.getString(3),rs.getDouble(4),rs.getInt(5));
-				maglieria.add(p);
+				felpe.add(p);
 			}
 			
 		} catch (Exception e) {
 			
 		}
-		return maglieria;
+		return felpe;
 		
 		
 		
 	}
 	
-	public int InserisciMaglieria() {
+	public int InserisciFelpe() {
 		int n=0;
 		try {
 			pst=con().prepareStatement("insert into prodotti(nome,prezzo,quantità) values(?,?,?");
@@ -57,7 +55,7 @@ public class MaglieriaDao {
 		return n;
 	}
 	
-	public int AggiornaMaglieria() {
+	public int AggiornaFelpe() {
 		int n=0;
 		try {
 			pst=con().prepareStatement("update prodotti set nome=?,prezzo=?,quantità=? where id=?");

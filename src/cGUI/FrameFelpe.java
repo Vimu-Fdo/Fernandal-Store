@@ -1,4 +1,5 @@
 package cGUI;
+import bDao.*;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
@@ -6,24 +7,22 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 import aDeafultPackage.Prodotto;
-import bDao.*;
 
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Color;
 
-public class FrameMaglieria {
+public class FrameFelpe {
 
 	public JFrame frame;
-	private JTable table;
 	Prodotto p;
-	ArrayList<Prodotto> maglieria;
-	MaglieriaDao mDao=new MaglieriaDao();
-	private JButton btnIndietro;
-	StoreController ctrl= new StoreController();
+	ArrayList<Prodotto> felpe;
+    FelpeDao fDao=new FelpeDao();
+    private JTable table;
+    StoreController ctrl= new StoreController();
+    private JButton btnIndietro;
 
 	/**
 	 * Launch the application.
@@ -32,7 +31,7 @@ public class FrameMaglieria {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrameMaglieria window = new FrameMaglieria();
+					FrameFelpe window = new FrameFelpe();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,18 +43,18 @@ public class FrameMaglieria {
 	/**
 	 * Create the application.
 	 */
-	public FrameMaglieria() {
+	public FrameFelpe() {
 		initialize();
 		Riempi();
 	}
 	
 	public void Riempi() {
 		Object[] righe= new Object[4];
-		maglieria=new ArrayList<Prodotto>(mDao.MostraMaglieria());
+		felpe=new ArrayList<Prodotto>(fDao.MostraFelpe());
 		String[] nomeColonna= {"ID","Nome","Prezzo","Quantità",};
 		DefaultTableModel tab= new DefaultTableModel(null,nomeColonna);
 //		panta.addAll(pDao.MostraPantalone());
-		for (Prodotto v:maglieria) {
+		for (Prodotto v:felpe) {
 			righe[0]=v.getID();
 			righe[1]=v.getNomeProdotto();
 			righe[2]=v.getPrezzo();
@@ -71,17 +70,14 @@ public class FrameMaglieria {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setName("");
-		scrollPane.setAutoscrolls(true);
-		scrollPane.setBackground(new Color(240, 128, 128));
-		scrollPane.setBounds(68, 71, 261, 110);
+		scrollPane.setBounds(72, 78, 250, 119);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
@@ -94,12 +90,8 @@ public class FrameMaglieria {
 				frame.dispose();
 			}
 		});
-		btnIndietro.setBounds(291, 215, 97, 25);
+		btnIndietro.setBounds(293, 210, 97, 25);
 		frame.getContentPane().add(btnIndietro);
 	}
 
-	public void setVisible(boolean b) {
-		
-		
-	}
 }

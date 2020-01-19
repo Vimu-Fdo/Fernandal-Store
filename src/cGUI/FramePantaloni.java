@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+
+
 import aDeafultPackage.Prodotto;
 import bDao.*;
 
@@ -14,21 +16,27 @@ import java.util.*;
 import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-class FramePantaloni extends javax.swing.JTable{
+public class FramePantaloni extends javax.swing.JTable{
 
-	private JFrame frame;
-	private JTable table;
-	private JComboBox comboBox;
+	public JFrame frame;
+	public JTable table;
+	public JComboBox comboBox;
 	Prodotto p;
 	ArrayList<Prodotto> pantaloni;
 	PantaloneDao pDao=new PantaloneDao();
+	private JButton btnIndietro;
+	StoreController ctrl= new StoreController();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			
 			public void run() {
 				try {
 					FramePantaloni window = new FramePantaloni();
@@ -75,7 +83,7 @@ class FramePantaloni extends javax.swing.JTable{
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 809, 590);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,6 +99,17 @@ class FramePantaloni extends javax.swing.JTable{
 		comboBox = new JComboBox();
 		comboBox.setBounds(101, 49, 146, 22);
 		frame.getContentPane().add(comboBox);
+		
+		btnIndietro = new JButton("Indietro");
+		btnIndietro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrl.ApriCategoriaUomo();
+				frame.dispose();
+				
+			}
+		});
+		btnIndietro.setBounds(598, 505, 97, 25);
+		frame.getContentPane().add(btnIndietro);
 	}
 	
 }

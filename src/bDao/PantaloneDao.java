@@ -20,7 +20,7 @@ public class PantaloneDao {
 	public ArrayList<Prodotto> MostraPantaloni(){
 		ArrayList<Prodotto> pantaloni=new ArrayList<Prodotto>();
 		try {
-			pst=con().prepareStatement("SELECT * FROM `prodotti`");
+			pst=con().prepareStatement("SELECT * FROM `prodotti` WHERE Sesso='Uomo'AND categoria='Pantalone'");
 			rs=pst.executeQuery();
 			while (rs.next()){
 				p= new Prodotto(rs.getInt(2),rs.getString(3),rs.getDouble(4),rs.getInt(5));
