@@ -50,7 +50,7 @@ public class SchermataIniziale extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1220, 830);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
+		contentPane.setBackground(new Color(240, 248, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -139,7 +139,7 @@ public class SchermataIniziale extends JFrame {
 	   JLabel lblSaldi = new JLabel("");
 	   lblSaldi.setBackground(new Color(240, 248, 255));
 	   lblSaldi.setIcon(new ImageIcon(SchermataIniziale.class.getResource("/Immagini/Saldi.gif")));
-	   lblSaldi.setBounds(326, 32, 711, 161);
+	   lblSaldi.setBounds(320, 0, 800, 230);
 	   contentPane.add(lblSaldi);
 //	   ImageIcon saldiicon=new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Immagini/Saldi.gif")));
 //		Image saldiimage=saldiicon.getImage();
