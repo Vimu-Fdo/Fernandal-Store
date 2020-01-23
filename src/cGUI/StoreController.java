@@ -20,6 +20,7 @@ public class StoreController {
 	
 	public void ApriCategoriaUomo() {
 		CategoriaUomo uomo=new CategoriaUomo();
+		uomo.setLocationRelativeTo(null);
 		uomo.setVisible(true);
 		
 	}

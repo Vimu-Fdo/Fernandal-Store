@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
@@ -26,6 +28,7 @@ public class SchermataIniziale extends JFrame {
 
 	private JPanel contentPane;
 	StoreController ctrl=new StoreController();
+	JPanel sidePanel;
 
 	/**
 	 * Launch the application.
@@ -36,6 +39,7 @@ public class SchermataIniziale extends JFrame {
 				try {
 					SchermataIniziale frame = new SchermataIniziale();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,28 +52,30 @@ public class SchermataIniziale extends JFrame {
 	 */
 	public SchermataIniziale() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1220, 830);
+		setBounds(100, 100, 1248, 773);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(240, 248, 255));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
 	    
 	    
 	    JPanel panel = new JPanel();
-	    panel.setBackground(new Color(240, 248, 255));
-	    panel.setBounds(245, 230, 957, 553);
+	    panel.setBackground(Color.WHITE);
+	    panel.setBounds(167, 189, 979, 547);
 	    contentPane.add(panel);
 	    panel.setLayout(null);
 	    
 	    JLabel lblUomo = new JLabel("");
-	    lblUomo.setBounds(102, 53, 308, 487);
+	    lblUomo.setBounds(112, 72, 302, 462);
 	    panel.add(lblUomo);
 	    lblUomo.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent arg0) {
 	    		ctrl.ApriCategoriaUomo();
+	    	
 	    		dispose();
 	    		
 	    	}
@@ -81,7 +87,7 @@ public class SchermataIniziale extends JFrame {
 		lblUomo.setIcon(finaleuomo);
 	    
 	    JLabel lblDonna = new JLabel("");
-	    lblDonna.setBounds(544, 53, 308, 487);
+	    lblDonna.setBounds(567, 67, 260, 380);
 	    panel.add(lblDonna);
 	    lblDonna.addMouseListener(new MouseAdapter() {
 	    	@Override
@@ -109,26 +115,48 @@ public class SchermataIniziale extends JFrame {
 	   lblDonna_1.setBounds(544, 0, 308, 54);
 	   panel.add(lblDonna_1);
 	   
-	   JPanel panel_1 = new JPanel();
-	   panel_1.setBackground(new Color(255,228,196));
-	   panel_1.setBounds(0, 230, 245, 553);
-	   contentPane.add(panel_1);
-	   panel_1.setLayout(null);
+	   JPanel sidePanel = new JPanel();
+	   sidePanel.setBackground(new Color(255, 140, 0));
+	   sidePanel.setBounds(0, 202, 54, 524);
+	   contentPane.add(sidePanel);
+	   sidePanel.setLayout(null);
 	   
-	   JLabel SideLbl = new JLabel("  Menu");
-	   SideLbl.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
-	   SideLbl.setBounds(0, 0, 192, 70);
-	   panel_1.add(SideLbl);
-	   
-	   JPanel panel_2 = new JPanel();
-	   panel_2.setBackground(Color.RED);
-	   panel_2.setBounds(0, 0, 4, 70);
-	   panel_1.add(panel_2);
+	   JButton btnExp = new JButton("exp");
+	   btnExp.addActionListener(new ActionListener() {
+	   	public void actionPerformed(ActionEvent e) {
+	Thread th=new Thread() {
+    @Override
+	public void run (){
+		try {
+			for (int i = 0; i < 6; i++) {
+				Thread.sleep(30);
+				if (i==1) {sidePanel.setSize(100, 471);}
+				if (i==2) {sidePanel.setSize(125, 471);}
+				if (i==3) {sidePanel.setSize(150, 471);}
+				if (i==4) {sidePanel.setSize(175, 471);}
+				if (i==5) {sidePanel.setSize(200, 471);}
+				if (i==6) {sidePanel.setSize(231, 471);}
+				
+				
+			}
+			
+		} catch (Exception e) {
+			
+		}
+		
+		
+	}
+	};th.start();
+	   		
+	   	}
+	   });
+	   btnExp.setBounds(0, 0, 53, 25);
+	   sidePanel.add(btnExp);
 	   
 	   
 	   
 	   JLabel lblLogo = new JLabel("");
-	   lblLogo.setBounds(-11, -14, 272, 278);
+	   lblLogo.setBounds(0, 0, 232, 200);
 	   contentPane.add(lblLogo);
 	   ImageIcon logoicon=new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Immagini/FERNANDAL (1).png")));
 	   Image logoimage=logoicon.getImage();
@@ -139,7 +167,7 @@ public class SchermataIniziale extends JFrame {
 	   JLabel lblSaldi = new JLabel("");
 	   lblSaldi.setBackground(new Color(240, 248, 255));
 	   lblSaldi.setIcon(new ImageIcon(SchermataIniziale.class.getResource("/Immagini/Saldi.gif")));
-	   lblSaldi.setBounds(320, 0, 800, 230);
+	   lblSaldi.setBounds(269, 13, 869, 177);
 	   contentPane.add(lblSaldi);
 //	   ImageIcon saldiicon=new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Immagini/Saldi.gif")));
 //		Image saldiimage=saldiicon.getImage();
@@ -148,4 +176,5 @@ public class SchermataIniziale extends JFrame {
 //	    lblSaldi.setIcon(saldifinale);
 	   
 	}
+	
 }
