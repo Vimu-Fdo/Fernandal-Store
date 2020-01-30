@@ -1,7 +1,10 @@
 package cGUI;
 
+import java.awt.Image;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import aDeafultPackage.Prodotto;
@@ -20,6 +23,7 @@ public class StoreController {
 	
 	public void ApriCategoriaUomo() {
 		CategoriaUomo uomo=new CategoriaUomo();
+		
 		uomo.setLocationRelativeTo(null);
 		uomo.setVisible(true);
 		
@@ -47,6 +51,30 @@ public class StoreController {
 		CategoriaDonna donna= new CategoriaDonna();
 		donna.setVisible(true);
 	}
+//	public void ApriInfoProdotti(){
+//		CategoriaUomo catuomo= new CategoriaUomo();
+//		try {
+//			InfoProdottoFrame info=new InfoProdottoFrame();
+//			int index=catuomo.tablePantaloni.getSelectedRow();
+//   		javax.swing.table.TableModel model=catuomo.tablePantaloni.getModel();
+//   		String nome= model.getValueAt(index, 0).toString();
+//   		String prezzo=model.getValueAt(index, 1).toString();
+//   		ImageIcon image1 = (ImageIcon)catuomo.tablePantaloni.getValueAt(index, 3);
+//        Image image2 = image1.getImage().getScaledInstance(catuomo.lblImage.getWidth(), catuomo.lblImage.getHeight(), Image.SCALE_SMOOTH);
+//        ImageIcon image3 = new ImageIcon(image2);
+//        info.lblFoto.setIcon(image3);
+//   		info.setVisible(true);
+//
+//   		info.setLocationRelativeTo(null);
+//   		
+//   		info.setDefaultCloseOperation(CategoriaUomo.DISPOSE_ON_CLOSE);
+//   		
+//   		info.txtNome.setText(nome);
+//   		info.txtPrezzo.setText(prezzo);
+//		} catch (Exception e) {
+//			JOptionPane.showMessageDialog(null, "Selezionare prodotto", "ERROR", JOptionPane.ERROR_MESSAGE);
+//		}
+//	}
 	
 
 }

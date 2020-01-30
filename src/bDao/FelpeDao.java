@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JTextField;
+
 import aDeafultPackage.Prodotto;
 
 public class FelpeDao {
@@ -27,7 +29,7 @@ public class FelpeDao {
 			pst=con().prepareStatement("SELECT * FROM `prodotti` WHERE Sesso='Uomo'AND categoria='Felpa'");
 			rs=pst.executeQuery();
 			while (rs.next()){
-				p= new Prodotto(rs.getInt(2),rs.getString(3),rs.getDouble(4),rs.getInt(5));
+				p= new Prodotto(rs.getInt(2),rs.getString(3),rs.getDouble(4),rs.getInt(5),rs.getBytes(7));
 				felpe.add(p);
 			}
 			
@@ -40,13 +42,13 @@ public class FelpeDao {
 		
 	}
 	
-	public int InserisciFelpe() {
+	public int InserisciFelpe(String nome,double prezzo,int quantità) {
 		int n=0;
 		try {
-			pst=con().prepareStatement("insert into prodotti(nome,prezzo,quantità) values(?,?,?");
-			pst.setString(1, p.getNomeProdotto());
-			pst.setDouble(2, p.getPrezzo());
-			pst.setInt(3, p.getQuantità());
+			pst=con().prepareStatement("insert into carrello(Nome,Prezzo,Quantità) values(?,?,?");
+			pst.setString(1, nome);
+			pst.setDouble(2, prezzo);
+			pst.setInt(3, quantità);
 			n=pst.executeUpdate();
 			
 		} catch (Exception e) {
@@ -62,7 +64,7 @@ public class FelpeDao {
 			pst.setString(1, p.getNomeProdotto());
 			pst.setDouble(2, p.getPrezzo());
 			pst.setInt(3, p.getQuantità());
-			pst.setInt(4, p.getID());
+//			pst.setInt(4, p.getID());
 			
 			n=pst.executeUpdate();
 			

@@ -1,5 +1,6 @@
 package aDeafultPackage;
 
+import java.sql.Blob;
 
 public class Prodotto {
 	private String Categoria;
@@ -10,16 +11,41 @@ public class Prodotto {
 	private byte[] Image;
 	
 	
-	public Prodotto( int iD, String nomeProdotto, Double prezzo, int quantità) {
+	
+	
+	public Prodotto(String nomeProdotto, Double prezzo, int quantità) {
+		super();
+		NomeProdotto = nomeProdotto;
+		Prezzo = prezzo;
+		Quantità = quantità;
+	}
+
+
+	public Prodotto( int iD, String nomeProdotto, Double prezzo, int quantità, byte[] image) {
 		super();
 		
 		ID = iD;
 		NomeProdotto = nomeProdotto;
 		Prezzo = prezzo;
 		Quantità = quantità;
-		
+		Image = image;
 	}
+
+
+//	public Prodotto(int iD, String nomeProdotto, Double prezzo, int quantità) {
+//		super();
+//		
+//		ID = iD;
+//		NomeProdotto = nomeProdotto;
+//		Prezzo = prezzo;
+//		Quantità = quantità;
+//		
+//	}
 	
+	
+	
+
+
 	public int getID() {
 		return ID;
 	}
@@ -42,7 +68,7 @@ public class Prodotto {
 		return Quantità;
 	}
 	public void setQuantità(int quantità) {
-		Quantità = quantità;
+		Quantità= quantità;
 	}
 
 	public String getCategoria() {
@@ -53,13 +79,17 @@ public class Prodotto {
 		Categoria = categoria;
 	}
 
+
 	public byte[] getImage() {
 		return Image;
 	}
 
+
 	public void setImage(byte[] image) {
 		Image = image;
 	}
+
+	
 	
 	
 	
